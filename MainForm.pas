@@ -123,7 +123,15 @@ begin
         if str[J] = '*' then
           answ := firstNum * secondNum
         else
-          answ := firstNum / secondNum;
+        begin
+          if (secondNum <> 0) then
+            answ := firstNum / secondNum
+          else
+            begin
+              lblOutput.Caption := 'Невозможно деление на 0';
+              exit;
+            end;
+        end;
         str := Copy(str, 1, iNumFirst-1) + FloatToStr(answ) + Copy(str, iNumSecond + 1);
         strNum := str;
         break;
