@@ -13,7 +13,7 @@ object MainFm: TMainFm
   Font.Style = []
   Position = poDesktopCenter
   TextHeight = 15
-  object LabelOutp: TLabel
+  object lblOutput: TLabel
     Left = 8
     Top = 39
     Width = 11
@@ -28,7 +28,7 @@ object MainFm: TMainFm
     ParentColor = False
     ParentFont = False
   end
-  object LabelHist: TLabel
+  object lblHistory: TLabel
     Left = 8
     Top = 16
     Width = 4
@@ -40,97 +40,97 @@ object MainFm: TMainFm
     Font.Style = []
     ParentFont = False
   end
-  object ButtonEq: TButton
+  object btnEqual: TButton
     Left = 178
     Top = 254
     Width = 70
     Height = 40
     Caption = '='
     TabOrder = 0
-    OnClick = ButtonEqClick
+    OnClick = btnEqualClick
   end
-  object Button1: TButton
+  object btn1: TButton
     Left = 5
     Top = 82
     Width = 49
     Height = 50
     Caption = '1'
     TabOrder = 1
-    OnClick = Button9Click
+    OnClick = btn9Click
   end
-  object Button4: TButton
+  object btn4: TButton
     Left = 5
     Top = 138
     Width = 49
     Height = 50
     Caption = '4'
     TabOrder = 2
-    OnClick = Button9Click
+    OnClick = btn9Click
   end
-  object Button2: TButton
+  object btn2: TButton
     Left = 60
     Top = 82
     Width = 49
     Height = 50
     Caption = '2'
     TabOrder = 3
-    OnClick = Button9Click
+    OnClick = btn9Click
   end
-  object Button5: TButton
+  object btn5: TButton
     Left = 60
     Top = 138
     Width = 49
     Height = 50
     Caption = '5'
     TabOrder = 4
-    OnClick = Button9Click
+    OnClick = btn9Click
   end
-  object Button3: TButton
+  object btn3: TButton
     Left = 115
     Top = 82
     Width = 49
     Height = 50
     Caption = '3'
     TabOrder = 5
-    OnClick = Button9Click
+    OnClick = btn9Click
   end
-  object Button6: TButton
+  object btn6: TButton
     Left = 115
     Top = 138
     Width = 49
     Height = 50
     Caption = '6'
     TabOrder = 6
-    OnClick = Button9Click
+    OnClick = btn9Click
   end
-  object Button9: TButton
+  object btn9: TButton
     Left = 115
     Top = 194
     Width = 49
     Height = 49
     Caption = '9'
     TabOrder = 7
-    OnClick = Button9Click
+    OnClick = btn9Click
   end
-  object Button7: TButton
+  object btn7: TButton
     Left = 5
     Top = 194
     Width = 49
     Height = 50
     Caption = '7'
     TabOrder = 8
-    OnClick = Button9Click
+    OnClick = btn9Click
   end
-  object Button8: TButton
+  object btn8: TButton
     Left = 60
     Top = 194
     Width = 49
     Height = 50
     Caption = '8'
     TabOrder = 9
-    OnClick = Button9Click
+    OnClick = btn9Click
   end
-  object ButtonPow: TButton
+  object btnMultiply: TButton
     Tag = 4
     Left = 214
     Top = 207
@@ -140,7 +140,7 @@ object MainFm: TMainFm
     TabOrder = 10
     OnClick = ButtonActClick
   end
-  object ButtonDiv: TButton
+  object btnDivide: TButton
     Tag = 3
     Left = 178
     Top = 207
@@ -150,7 +150,7 @@ object MainFm: TMainFm
     TabOrder = 11
     OnClick = ButtonActClick
   end
-  object ButtonMin: TButton
+  object btnMinus: TButton
     Tag = 2
     Left = 216
     Top = 160
@@ -160,7 +160,7 @@ object MainFm: TMainFm
     TabOrder = 12
     OnClick = ButtonActClick
   end
-  object ButtonPlus: TButton
+  object btnPlus: TButton
     Tag = 1
     Left = 178
     Top = 160
@@ -170,25 +170,25 @@ object MainFm: TMainFm
     TabOrder = 13
     OnClick = ButtonActClick
   end
-  object Button0: TButton
+  object btn0: TButton
     Left = 5
     Top = 250
     Width = 159
     Height = 44
     Caption = '0'
     TabOrder = 14
-    OnClick = Button9Click
+    OnClick = btn9Click
   end
-  object ButtonC: TButton
+  object btnC: TButton
     Left = 216
     Top = 82
     Width = 32
     Height = 32
     Caption = 'C'
     TabOrder = 15
-    OnClick = ButtonCClick
+    OnClick = btnCClick
   end
-  object ButtonCe: TButton
+  object btnCe: TButton
     Tag = 2
     Left = 178
     Top = 82
@@ -197,16 +197,16 @@ object MainFm: TMainFm
     Caption = 'CE'
     TabOrder = 16
   end
-  object ButtonDot: TButton
+  object btnDot: TButton
     Left = 178
     Top = 120
     Width = 32
     Height = 34
     Caption = ','
     TabOrder = 17
-    OnClick = ButtonDotClick
+    OnClick = btnDotClick
   end
-  object ButtonBS: TButton
+  object btnBackspace: TButton
     Left = 216
     Top = 120
     Width = 32

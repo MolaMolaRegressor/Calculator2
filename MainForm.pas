@@ -8,32 +8,32 @@ uses
 
 type
   TMainFm = class(TForm)
-    LabelOutp: TLabel;
-    LabelHist: TLabel;
-    ButtonEq: TButton;
-    Button1: TButton;
-    Button4: TButton;
-    Button2: TButton;
-    Button5: TButton;
-    Button3: TButton;
-    Button6: TButton;
-    Button9: TButton;
-    Button7: TButton;
-    Button8: TButton;
-    ButtonPow: TButton;
-    ButtonDiv: TButton;
-    ButtonMin: TButton;
-    ButtonPlus: TButton;
-    Button0: TButton;
-    ButtonC: TButton;
-    ButtonCe: TButton;
-    ButtonDot: TButton;
-    ButtonBS: TButton;
-    procedure Button9Click(Sender: TObject);
+    lblOutput: TLabel;
+    lblHistory: TLabel;
+    btnEqual: TButton;
+    btn1: TButton;
+    btn4: TButton;
+    btn2: TButton;
+    btn5: TButton;
+    btn3: TButton;
+    btn6: TButton;
+    btn9: TButton;
+    btn7: TButton;
+    btn8: TButton;
+    btnMultiply: TButton;
+    btnDivide: TButton;
+    btnMinus: TButton;
+    btnPlus: TButton;
+    btn0: TButton;
+    btnC: TButton;
+    btnCe: TButton;
+    btnDot: TButton;
+    btnBackspace: TButton;
+    procedure btn9Click(Sender: TObject);
     procedure ButtonActClick(Sender: TObject);
-    procedure ButtonEqClick(Sender: TObject);
-    procedure ButtonCClick(Sender: TObject);
-    procedure ButtonDotClick(Sender: TObject);
+    procedure btnEqualClick(Sender: TObject);
+    procedure btnCClick(Sender: TObject);
+    procedure btnDotClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -47,43 +47,47 @@ implementation
 
 {$R *.dfm}
 
-procedure TMainFm.Button9Click(Sender: TObject);
+procedure TMainFm.btn9Click(Sender: TObject);
 begin
-  if (LabelOutp.Caption = '0') or (LabelHist.Caption <> '') then
+  if (lblOutput.Caption = '0') or (lblHistory.Caption <> '') then
   begin
-    LabelOutp.Caption := '';
+    lblOutput.Caption := '';
   end;
-  LabelOutp.Caption := LabelOutp.Caption + (Sender as TButton).Caption;
+  lblOutput.Caption := lblOutput.Caption + (Sender as TButton).Caption;
 end;
 
 procedure TMainFm.ButtonActClick(Sender: TObject);
+var
+  str : string;
 begin
-  LabelOutp.Caption := LabelOutp.Caption + (Sender as TButton).Caption;
+  str := lblOutput.Caption;
+  if not(lblOutput.Caption[str.Length] in ['+','-','/','*']) then
+    lblOutput.Caption := lblOutput.Caption + (Sender as TButton).Caption;
 end;
 
-procedure TMainFm.ButtonCClick(Sender: TObject);
+procedure TMainFm.btnCClick(Sender: TObject);
 begin
-  LabelOutp.Caption := '0';
-  LabelHist.Caption := '';
+  lblOutput.Caption := '0';
+  lblHistory.Caption := '';
 end;
 
-procedure TMainFm.ButtonDotClick(Sender: TObject);
+procedure TMainFm.btnDotClick(Sender: TObject);
 var
   I: ShortInt;
   str: string;
 begin
-  str := LabelOutp.Caption;
+  str := lblOutput.Caption;
   I := str.Length;
-  while (not (LabelOutp.Caption[I] in ['+', '-', '*', '/'])) and (I > 1) do
+  while (not (lblOutput.Caption[I] in ['+', '-', '*', '/'])) and (I > 1) do
   begin
-    if LabelOutp.Caption[I] = ',' then
+    if lblOutput.Caption[I] = ',' then
       exit ;
     I := I - 1;
   end;
-  LabelOutp.Caption := LabelOutp.Caption + (Sender as TButton).Caption;
+  lblOutput.Caption := lblOutput.Caption + (Sender as TButton).Caption;
 end;
 
-procedure TMainFm.ButtonEqClick(Sender: TObject);
+procedure TMainFm.btnEqualClick(Sender: TObject);
 var
   I, J, iNumFirst, iNumSecond, numAct, numFirstAct: ShortInt;
   firstNum, secondNum, answ: Double;
@@ -93,8 +97,8 @@ begin
   numFirstAct := 0;
   firstNum := 0;
   iNumFirst := 1;
-  str := LabelOutp.Caption;
-  LabelHist.Caption := str;
+  str := lblOutput.Caption;
+  lblHistory.Caption := str;
   for I := 1 to str.Length do
   begin
     if (str[I] in ['+', '-']) then
@@ -147,6 +151,6 @@ begin
       end;
     end;
   end;
-  LabelOutp.Caption := strNum;
+  lblOutput.Caption := strNum;
 end;
 end.
