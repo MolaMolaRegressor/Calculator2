@@ -30,7 +30,7 @@ type
     btnDot: TButton;
     btnBackspace: TButton;
     procedure btn9Click(Sender: TObject);
-    procedure ButtonActClick(Sender: TObject);
+    procedure btnActClick(Sender: TObject);
     procedure btnEqualClick(Sender: TObject);
     procedure btnCClick(Sender: TObject);
     procedure btnDotClick(Sender: TObject);
@@ -56,7 +56,7 @@ begin
   lblOutput.Caption := lblOutput.Caption + (Sender as TButton).Caption;
 end;
 
-procedure TMainFm.ButtonActClick(Sender: TObject);
+procedure TMainFm.btnActClick(Sender: TObject);
 var
   str : string;
 begin

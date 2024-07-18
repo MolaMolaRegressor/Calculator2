@@ -3,8 +3,8 @@ object MainFm: TMainFm
   Top = 0
   BorderStyle = bsDialog
   Caption = #1050#1072#1083#1100#1082#1091#1083#1103#1090#1086#1088' 2'
-  ClientHeight = 303
-  ClientWidth = 256
+  ClientHeight = 294
+  ClientWidth = 250
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -138,7 +138,7 @@ object MainFm: TMainFm
     Height = 42
     Caption = '*'
     TabOrder = 10
-    OnClick = ButtonActClick
+    OnClick = btnActClick
   end
   object btnDivide: TButton
     Tag = 3
@@ -148,7 +148,7 @@ object MainFm: TMainFm
     Height = 42
     Caption = '/'
     TabOrder = 11
-    OnClick = ButtonActClick
+    OnClick = btnActClick
   end
   object btnMinus: TButton
     Tag = 2
@@ -158,7 +158,7 @@ object MainFm: TMainFm
     Height = 41
     Caption = '-'
     TabOrder = 12
-    OnClick = ButtonActClick
+    OnClick = btnActClick
   end
   object btnPlus: TButton
     Tag = 1
@@ -168,7 +168,7 @@ object MainFm: TMainFm
     Height = 41
     Caption = '+'
     TabOrder = 13
-    OnClick = ButtonActClick
+    OnClick = btnActClick
   end
   object btn0: TButton
     Left = 5
