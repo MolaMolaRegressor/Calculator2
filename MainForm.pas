@@ -7,7 +7,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
 
 type
-  TForm1 = class(TForm)
+  TMainFm = class(TForm)
     LabelOutp: TLabel;
     LabelHist: TLabel;
     ButtonEq: TButton;
@@ -41,13 +41,13 @@ type
   end;
 
 var
-  MainFrm: TForm1;
+  MainFm: TMainFm;
 
 implementation
 
 {$R *.dfm}
 
-procedure TForm1.Button9Click(Sender: TObject);
+procedure TMainFm.Button9Click(Sender: TObject);
 begin
   if (LabelOutp.Caption = '0') or (LabelHist.Caption <> '') then
   begin
@@ -56,18 +56,18 @@ begin
   LabelOutp.Caption := LabelOutp.Caption + (Sender as TButton).Caption;
 end;
 
-procedure TForm1.ButtonActClick(Sender: TObject);
+procedure TMainFm.ButtonActClick(Sender: TObject);
 begin
   LabelOutp.Caption := LabelOutp.Caption + (Sender as TButton).Caption;
 end;
 
-procedure TForm1.ButtonCClick(Sender: TObject);
+procedure TMainFm.ButtonCClick(Sender: TObject);
 begin
   LabelOutp.Caption := '0';
   LabelHist.Caption := '';
 end;
 
-procedure TForm1.ButtonDotClick(Sender: TObject);
+procedure TMainFm.ButtonDotClick(Sender: TObject);
 var
   I: ShortInt;
   str: string;
@@ -83,15 +83,15 @@ begin
   LabelOutp.Caption := LabelOutp.Caption + (Sender as TButton).Caption;
 end;
 
-procedure TForm1.ButtonEqClick(Sender: TObject);
+procedure TMainFm.ButtonEqClick(Sender: TObject);
 var
   I, J, iNumFirst, iNumSecond, numAct, numFirstAct: ShortInt;
-  first, second, answ: Double;
+  firstNum, secondNum, answ: Double;
   str, strNum: string;
 begin
   numAct := 0;
   numFirstAct := 0;
-  first := 0;
+  firstNum := 0;
   iNumFirst := 1;
   str := LabelOutp.Caption;
   LabelHist.Caption := str;
@@ -111,15 +111,15 @@ begin
         iNumFirst := J - 1;
         while not((iNumFirst = 1) or (str[iNumFirst -1 ] in ['+', '-', '*', '/'])) do
           iNumFirst := iNumFirst - 1;
-        first := StrToFloat(Copy(str, iNumFirst, J-iNumFirst));
+        firstNum := StrToFloat(Copy(str, iNumFirst, J-iNumFirst));
         iNumSecond := J + 1;
         while not((iNumSecond = str.Length) or (str[iNumSecond + 1] in ['+', '-', '*', '/'])) do
           iNumSecond := iNumSecond + 1;
-        second := StrToFloat(Copy(str, J + 1, iNumSecond - J));
+        secondNum := StrToFloat(Copy(str, J + 1, iNumSecond - J));
         if str[J] = '*' then
-          answ := first * second
+          answ := firstNum * secondNum
         else
-          answ := first / second;
+          answ := firstNum / secondNum;
         str := Copy(str, 1, iNumFirst-1) + FloatToStr(answ) + Copy(str, iNumSecond + 1);
         strNum := str;
         break;
@@ -133,14 +133,14 @@ begin
       if (str[J] = '+') or (str[J] = '-') then
       begin
         iNumSecond := J + 1;
-        first := StrToFloat(Copy(str, 1, J - 1));
+        firstNum := StrToFloat(Copy(str, 1, J - 1));
         while not((iNumSecond = str.Length) or (str[iNumSecond + 1] in ['+', '-'])) do
           iNumSecond := iNumSecond + 1;
-        second := StrToFloat(Copy(str, J + 1, iNumSecond - J));
+        secondNum := StrToFloat(Copy(str, J + 1, iNumSecond - J));
         if str[J] = '+' then
-          answ := first + second
+          answ := firstNum + secondNum
         else
-          answ := first - second;
+          answ := firstNum - secondNum;
         str := FloatToStr(answ) + Copy(str, iNumSecond + 1);
         strNum := str;
         break;
